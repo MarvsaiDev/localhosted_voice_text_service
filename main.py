@@ -36,9 +36,12 @@ async def store_data(raw_list, df:pd.DataFrame):
 # print(transcription["text"])
 ' Hello world.'
 
-def convert_text(audio:bytearray):
+def convert_text(audio:bytearray=None):
 
-    with open('stored_file.wav', 'ab') as f:
-        f.write(audio)
-    text = model.transcribe('stored_file.wav')
+    if audio:
+        with open('.wav', 'ab') as f:
+            f.write(audio)
+    text = model.transcribe('videoaudio.wav')
+    print(text)
 
+convert_text()
